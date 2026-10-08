@@ -1,0 +1,6 @@
+{
+  "name": "Realistic 3D Chaser Snake",
+  "description": "Realistic 3D chase-camera snake game with natural serpent physics, procedural terrain, varied wild foods, and modern UI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

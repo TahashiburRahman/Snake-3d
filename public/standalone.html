@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Realistic 3D Chaser Snake</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="vignette"></div>
+
+<!-- Optimized HUD Layout -->
+<div id="hud">
+  <div id="score" class="hud-card">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m12 6 2.5 5 5 .5-4 3.5 1.5 5.5-5-3-5 3 1.5-5.5-4-3.5 5-.5z"/></svg>
+    SCORE 0
+  </div>
+  <div id="length" class="hud-card">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 12 8 8"/></svg>
+    LENGTH 9
+  </div>
+  <div id="food-count" class="hud-card">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"/><path d="M10 2c1 .5 2 2 2 5"/></svg>
+    FOOD 0
+  </div>
+</div>
+
+<!-- Active Status Badges -->
+<div id="badges">
+  <div id="badge-boost" class="badge">SPEED SURGE</div>
+  <div id="badge-grow" class="badge">GROWING</div>
+  <div id="badge-terrain" class="badge">TERRAIN</div>
+</div>
+
+<!-- Radar & Legend -->
+<div id="radar-container">
+  <canvas id="minimap-canvas"></canvas>
+  <div id="legend">
+    <div class="legend-header">Forage & Terrain</div>
+    <div class="legend-item">
+      <span class="legend-icon apple"></span>
+      <span class="legend-desc">Apples &bull; +15-90 pts</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-icon wild"></span>
+      <span class="legend-desc">Berries / Shrooms</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-icon speed"></span>
+      <span class="legend-desc">Sun Surge &bull; Speed</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-icon grow"></span>
+      <span class="legend-desc">Life Seed &bull; +3 Grow</span>
+    </div>
+    <div class="legend-item" style="margin-top: 6px; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.15);">
+      <span class="legend-icon swamp"></span>
+      <span class="legend-desc">Swamp &bull; -50% spd</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-icon grass"></span>
+      <span class="legend-desc">Tall Grass &bull; Hide &amp; slow</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-icon rock"></span>
+      <span class="legend-desc">Rocky &bull; -35% spd</span>
+    </div>
+  </div>
+</div>
+
+<!-- Controls Hint -->
+<div id="hint">
+  <span class="key-badge">A</span> / <span class="key-badge">D</span> Steer &nbsp;&bull;&nbsp;
+  <span class="key-badge">W</span> / <span class="key-badge">S</span> Speed Pace
+</div>
+
+<!-- Game Over Overlay -->
+<div id="gameover" class="hidden">
+  <div class="gameover-box">
+    <h1>GAME OVER</h1>
+    <div id="finalscore">FINAL SCORE 0</div>
+    <div id="finalstats">Length: 9 &bull; Food Foraged: 0</div>
+    <button id="restart">PLAY AGAIN</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
